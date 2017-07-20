@@ -238,6 +238,9 @@
 
 - (void)selectItem:(NSUInteger)item animated:(BOOL)animated notifySelection:(BOOL)notifySelection
 {
+    if (item >= [self.collectionView numberOfItemsInSection:0]) {
+        return;
+    }
 	[self.collectionView selectItemAtIndexPath:[NSIndexPath indexPathForItem:item inSection:0]
 									  animated:animated
 								scrollPosition:UICollectionViewScrollPositionNone];
